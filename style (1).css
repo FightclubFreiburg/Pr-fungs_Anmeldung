@@ -1,0 +1,147 @@
+header{
+    text-align: center;
+}
+header > h1{
+    font-size: 2rem;
+}
+
+.InputArea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    margin: 50px 0px 0px 0px;
+}
+
+.inputfield{
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputfield > input{
+    width: 250px;
+    height: 35px;
+
+    padding: 0px 10px 0px 10px;
+
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.inputfield > input:focus{
+    /* outline: none; */
+    border: 1px solid black;
+}
+
+.inputTitle{
+    width: 250px;
+    height: 10px;
+}
+
+.graduierung-selection{
+    width: 270px;
+    height: 35px;
+}
+
+.submitButton{
+    width: 200px;
+    height: 35px;
+
+    margin: 30px 0px 0px 0px;
+
+    border: 2px solid rgb(255, 238, 0);
+    border-radius: 8px;
+    background-color: rgb(255, 238, 0);
+
+    transition: .3s ease-in-out;
+}
+.submitButton:hover{
+    border: 2px solid rgb(255, 238, 0);
+    border-radius: 8px;
+    background-color: rgb(255, 238, 0);
+
+    transform: scale(1.1);
+}
+
+.imagePreview{
+    height: 300px;
+}
+.imagePreview > input{
+    position: absolute;
+
+    margin: 280px 0px 0px 0px;
+
+    width: 200px;
+    height: 20px;
+
+    border: none;
+}
+.imagePreview > img{
+    width: 200px;
+    height: 200px;
+
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.gürtel-checkbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    gap: 5px;
+}
+.gürtel-checkbox > div{
+    display: flex;
+    flex-direction: row;
+
+    gap: 5px;
+
+    margin: 0px 0px 0px 10px;
+}
+
+
+.none{
+    display: none;
+}
+
+
+
+/*Input Fields*//*
+.inputfield {
+    margin-top: 30px;
+}
+.inputfield>input {
+    padding-left: 10px;
+
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+.inputfield>input:hover~span {
+    color: black;
+}
+.inputfield>input:focus~span,
+.inputfield>input:valid~span {
+    color: rgb(0, 0, 0);
+    transform: translate(-20%, -120%);
+    scale: .8;
+}
+.inputfield>span {
+    position: absolute;
+
+    margin-left: -150px;
+
+    color: rgb(150, 150, 150);
+
+    pointer-events: none;
+
+    transition: all .2s ease-in-out;
+}
+/*

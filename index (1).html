@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="myScript.js" defer></script>
+    <title>Prüfungs Anmeldung</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Anmeldung <br> <img src="Images/Fightclub Logo.png" height="40px" style="margin: 0px 0px -10px 0px"> Gürtelprüfung <img src="Images/Fightclub Logo.png" height="40px" style="margin: 0px 0px -10px 0px"></h1>
+        </header>
+        <section class="InputArea">
+
+            <!-- action="https://formsubmit.co/elias.ehret@fightclub-freiburg.de" -->
+            <form id="anmeldungsFormular" method="POST" enctype="multipart/form-data">
+                
+                <!-- Standort -->
+                <div class="inputfield">
+                    <p class="inputTitle">Ich bin Mitglied im: <a style="color: rgb(255, 183, 0)">*</a></p>
+
+                    <select id="standort-selector" name="standort" class="graduierung-selection"> 
+                        <option value="Freiburg">Fightclub Freiburg</option>
+                        <option value="Emmendingen">Fightclub Emmendingen</option>
+                    </select>
+                </div>
+
+                <!-- Vorname -->
+                <div class="inputfield">
+                    <p class="inputTitle">Vorname Prüfling <a style="color: rgb(255, 183, 0)">*</a></p>
+                    <input name="firstName" placeholder="Vorname Prüfling" required>
+                </div>
+
+                <!-- Nachname -->
+                <div class="inputfield">
+                    <p class="inputTitle">Nachname Prüfling <a style="color: rgb(255, 183, 0)">*</a></p>
+                    <input name="lastName" placeholder="Nachname Prüfling" required>
+                </div>
+
+                <!-- Alter -->
+                <div class="inputfield">
+                    <p class="inputTitle">Geburtsdatum Prüfling <a style="color: rgb(255, 183, 0)">*</a></p>
+                    <input type="date" id="birthday" name="birthday" placeholder="Alter" required onchange="alterEingabe(this.value)">
+                </div>
+
+                 <!-- Sportart -->
+                 <div class="inputfield">
+                    <p class="inputTitle">Sportart<a style="color: rgb(255, 183, 0)">*</a></p>
+
+                    <select id="sportart_selector" name="category" class="graduierung-selection" onchange="callAlterseingabeWithCurrentValue()">
+                        <option value="Kickboxen">Kickboxen</option>
+                        <option value="Jiu Jitsu">Jiu-Jitsu</option>
+                    </select>
+                </div>
+
+                <!-- Graduierung -->
+                <div class="inputfield">
+                    <p class="inputTitle">Zu prüfende Graduierung: <a style="color: rgb(255, 183, 0)">*</a></p>
+
+                    <select id="graduierung_selector" name="graduation" class="graduierung-selection" onchange="selectGraduation(this)"> 
+                        <option value="" disabled selected>Bitte auswählen</option>
+                        <option value="Gelb">Gelb</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Grün">Grün</option>
+                        <option value="Blau">Blau</option>
+                    </select>
+                </div>
+
+                <!-- Gürtel -->
+                <div class="inputfield gürtel-checkbox">
+                    <p class="inputTitle">Ich will einen Gürtel<a style="color: rgb(255, 183, 0)">*</a></p>
+                    
+                    <div>
+                        <input type="radio" name="gürtelwahl" value="Ja" required>
+                        <labl>Ja (Kostet 5€)</labl>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gürtelwahl" value="Nein" required>
+                        <labl>Nein</labl>
+                    </div>
+                </div>
+
+                <!-- WKU-Pass -->
+                <div id="wkupassAbgegeben_div" class="inputfield gürtel-checkbox">
+                    <p class="inputTitle">Ich habe bereits einen WKU-Pass<a style="color: rgb(255, 183, 0)">*</a></p>
+                    
+                    <div>
+                        <input type="radio" name="wkupassAbgegeben" value="Ja" onchange="changeWKUPassAbgegebenValue(value)">
+                        <labl>Ja</labl>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="wkupassAbgegeben" value="Nein" onchange="changeWKUPassAbgegebenValue(value)">
+                        <labl>Nein</labl>
+                    </div>
+                </div>
+
+                <section id="NewPassSection" class="none" style="margin: 10px 0px 0px 0px;">
+                    
+                    <!-- Telefon -->
+                    <div class="inputfield">
+                        <p class="inputTitle">Telefonnummer <a style="color: rgb(255, 183, 0)">*</a></p>
+                        <input name="telefonnummer" placeholder="Telefonnummer">
+                    </div>
+                    <!-- Adresse -->
+                    <div class="inputfield">
+                        <p class="inputTitle">Adresse <a style="color: rgb(255, 183, 0)">*</a></p>
+                        <input name="adresse" placeholder="Adresse">
+                    </div>
+                    <!-- Plz -->
+                    <div class="inputfield">
+                        <p class="inputTitle">Plz <a style="color: rgb(255, 183, 0)">*</a></p>
+                        <input name="platz" placeholder="Plz">
+                    </div>
+                    <!-- Ort -->
+                    <div class="inputfield">
+                        <p class="inputTitle">Ort <a style="color: rgb(255, 183, 0)">*</a></p>
+                        <input name="ort" placeholder="Ort">
+                    </div>
+                    <!-- Geschlecht -->
+                    <div class="inputfield">
+                    <p class="inputTitle">Geschlecht<a style="color: rgb(255, 183, 0)">*</a></p>
+
+                    <select id="graduierung_selector" name="geschlecht" class="graduierung-selection">
+                        <option value="" disabled selected>Bitte auswählen</option>
+                        <option value="Männlich">Männlich</option>
+                        <option value="Weiblich">Weiblich</option>
+                        <option value="Divers">Divers</option>
+                    </select>
+                </div>
+                </section>
+
+                <!-- T-Shirt -->
+                <div id="T-Shirt_div" class="inputfield gürtel-checkbox none" style="margin: 35px 0px 35px 0px;">
+                    <p class="inputTitle">Prüfungsshirt</p>
+                    
+                    <p style="margin: -5px 0px 10px 0px; font-size: 12px">Die Ameise (BuKi) trägt einen Gürtel mit der Gürtelfarbe,<br> die Ihr Kind erreicht hat! <a href="Images/BudoKids_Prüfungsshirts_beispiel.JPG">Hier ein Beispielbild</a></p>
+
+                    <div>
+                        <input type="radio" name="shirtwahl" value="Ja" onchange="shirtSizeDisplay(this.value)">
+                        <labl>Ja (Kostet 20€)</labl>
+                    </div>
+
+                    <!-- Shirt Größen -->
+                    <div>
+                        <div class="none" id="shirtSizeDisplay">
+                            <div style="display: flex; flex-direction: column; margin: 0px 0px 0px 25px">
+
+                                <select id="shirtSize_selector" name="shirtSize" style="height: 25px; width: 110px; margin: 0px 0px 10px 0px">
+                                    <option value="" disabled selected>Größe auswählen</option>
+                                    <option value="116">116</option>
+                                    <option value="128">128</option>
+                                    <option value="134">134</option>
+                                    <option value="140">140</option>
+                                    <option value="152">152</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="shirtwahl" value="Nein" onchange="shirtSizeDisplay(this.value)">
+                        <labl>Nein</labl>
+                    </div>
+                </div>
+
+                <!-- Foto 
+                <div class="inputfield imagePreview">
+                    <p style="margin-left: -20px" class="inputTitle">Foto</p>
+                    <p style="font-size: 13px; margin: 5px 0px 10px -25px">Das Foto wird auf die Urkunde gedruckt.</p>
+                    <input type="file" id="imageUpload" name="photo" accept="image/*" onchange="previewImage(event)">
+
+                    <img id="imagePreview" src="Images/Default_PB.jpg" alt="Bild Vorschau">
+                </div>
+-->
+                <!-- Email -->
+                <div class="inputfield">
+                    <p class="inputTitle">E-Mail-Adresse <a style="color: rgb(255, 183, 0)">*</a></p>
+                    <input name="email" placeholder="E-Mail-Adresse" required>
+                </div>
+
+                <!-- Einverständnis -->
+                <div id="Einverständnis" class="inputfield gürtel-checkbox" style="margin-top: 20px">
+                    <p class="inputTitle">Einverständnis<a style="color: rgb(255, 183, 0)">*</a></p>
+                    
+                    <div>
+                        <input type="checkbox" name="consent" value="hat den Bedingungen zugestimmt" required>
+                        <labl style="font-size: 10px">
+                            Ich habe den folgenden Text gelesen und verstanden: <br> 
+                            Die Anmeldung an die Prüfung ist verbindlich, <br>
+                            falls ich aus gesundheitlichen oder persönlichen Gründen nicht <br>
+                            teilnehmen kann, sichere ich zu, dass ich mich vorab <br>
+                            SCHRIFTLICH von der Prüfung abmelden werde. <br>
+                            <strong style="color: red">Die Prüfungskosten betragen <geb id="Gebühr">xx</geb>€ und müssen Vorort, <br> in Bar, bezahlt werden.</strong>
+                        </labl>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="inputfield">
+                    <button class="submitButton" type="submit">Anmeldung Abschicken</button>
+                </div>
+
+            </form>
+
+        </section>
+    </main>
+</body>
+</html>
