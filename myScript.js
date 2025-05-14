@@ -101,10 +101,11 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
         try {
             const response = await fetch(url, {
                 method: 'POST',
-                headers: {
+                /*headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
+                },*/
+                //body: JSON.stringify(data)
+		body: data
             });
 
             if(response.ok) {
