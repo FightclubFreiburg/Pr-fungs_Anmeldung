@@ -100,7 +100,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
 	
 	//Data wird überschrieben!!!
 	const form = event.target; 
-	data = new FormData(form);
+	const formData = new FormData(form);
 	
         try {
             const response = await fetch(url, {
@@ -109,7 +109,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
                     'Content-Type': 'application/json'
                 },*/
                 //body: JSON.stringify(data)
-		body: data
+		body: formData
             });
 
             if(response.ok) {
