@@ -98,6 +98,8 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
 	
 	url = "https://hooks.zapier.com/hooks/catch/22925597/2727n9o/";
 
+	const formdata = new FormData(data);
+	
         try {
             const response = await fetch(url, {
                 method: 'POST',
@@ -105,7 +107,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
                     'Content-Type': 'application/json'
                 },*/
                 //body: JSON.stringify(data)
-		body: data
+		body: formdata
             });
 
             if(response.ok) {
