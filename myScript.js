@@ -99,6 +99,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
 	url = "https://hooks.zapier.com/hooks/catch/22925597/2727n9o/";
 	
 	//Data wird überschrieben!!!
+	const form = event.target; 
 	data = new FormData(form);
 	
         try {
