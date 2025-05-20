@@ -175,10 +175,10 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
     
     		const form = event.target; 
 		const formData = new FormData(form);
-
+/*
 		formData.set('photo', base64String);
 		formData.set('mimeType', mimeType);
-
+*/
 	
         try {
             	const response = await fetch(url, {
