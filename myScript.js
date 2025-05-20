@@ -171,8 +171,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
                 return;
             }
     
-            if(curretAgegroup == "Budo Kids") url = "https://prod-41.westeurope.logic.azure.com:443/workflows/b893d6f927674005b07ad52158417578/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=o-k6wknDrG9_ZJq5PSH_cQLpQ3w6DPmu35gwxvKqh9g";
-            else url = "https://prod-41.westeurope.logic.azure.com:443/workflows/b893d6f927674005b07ad52158417578/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=o-k6wknDrG9_ZJq5PSH_cQLpQ3w6DPmu35gwxvKqh9g";
+            url = "https://hooks.zapier.com/hooks/catch/22925597/2727n9o/";
     
     		const form = event.target; 
 		const formData = new FormData(form);
