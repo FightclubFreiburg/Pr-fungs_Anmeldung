@@ -98,7 +98,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
 	
 	url = "https://hooks.zapier.com/hooks/catch/22925597/2727n9o/";
 	
-	//Data wird überschrieben!!!
+	
 	const form = event.target; 
 	const formData = new FormData(form);
 	
@@ -109,7 +109,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
                     'Content-Type': 'application/json'
                 },*/
                 //body: JSON.stringify(data)
-		body: formData
+		body: data
             });
 
             if(response.ok) {
