@@ -101,15 +101,12 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
 	
 	const form = event.target; 
 	const formData = new FormData(form);
+
 	
         try {
             const response = await fetch(url, {
                 method: 'POST',
-                /*headers: {
-                    'Content-Type': 'application/json'
-                },*/
-                //body: JSON.stringify(data)
-		body: data
+		body: formData
             });
 
             if(response.ok) {
@@ -177,7 +174,19 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
             if(curretAgegroup == "Budo Kids") url = "https://prod-41.westeurope.logic.azure.com:443/workflows/b893d6f927674005b07ad52158417578/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=o-k6wknDrG9_ZJq5PSH_cQLpQ3w6DPmu35gwxvKqh9g";
             else url = "https://prod-41.westeurope.logic.azure.com:443/workflows/b893d6f927674005b07ad52158417578/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=o-k6wknDrG9_ZJq5PSH_cQLpQ3w6DPmu35gwxvKqh9g";
     
-    
+    		const form = event.target; 
+		const formData = new FormData(form);
+
+		formData.set('photo', base64String);
+		formData.set('mimeType', mimeType);
+
+	
+        try {
+            	const response = await fetch(url, {
+                method: 'POST',
+		body: formData
+            });
+		/*
             try {
                 const response = await fetch(url, {
                     method: 'POST',
@@ -186,7 +195,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
                     },
                     body: JSON.stringify(data)
                 });
-    
+    */
                 if(response.ok) {
                     alert("Formular erfolgreich übermittelt!");
     
