@@ -52,15 +52,8 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
 
 
     console.log(event.target.gürtelwahl.selectedIndex);
-
-   
-        reader.onloadend = async function() {
-            // Datei in Base64 konvertieren
-            const base64String = reader.result.split(',')[1]; 
-            // MIME-Typ der Datei erfassen
-            const mimeType = fileInput.type;
-            
-            // Daten für den JSON-Body
+  
+           /* // Daten für den JSON-Body
             const data = {
 	    	vorname: event.target.firstName.value,
          	nachname: event.target.lastName.value,
@@ -91,7 +84,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
                 einverständniss: event.target.consent.value
             };
     
-    
+    */
             var url = "";
     
             if(curretAgegroup == "") {
@@ -123,13 +116,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
                 }
             } catch (error) {
                 alert("Fehler bei der Übermittlung: " + error.message);
-            }
-        };
-    
-        // Lese die Datei als Data-URL (Base64)
-        reader.readAsDataURL(fileInput);
-
-    
+	    }
 });
 
 
