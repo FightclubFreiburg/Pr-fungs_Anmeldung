@@ -51,81 +51,9 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
     }
 
 
-    const fileInput = null;//event.target.photo.files[0];
-    const reader = new FileReader();
-
     console.log(event.target.gürtelwahl.selectedIndex);
 
-    if(fileInput == null){
-
-        // Daten für den JSON-Body
-        const data = {
-            vorname: event.target.firstName.value,
-            nachname: event.target.lastName.value,
-
-            geburtstag: event.target.birthday.value,
-            sportart: event.target.category.value,
-            graduierung: event.target.graduation.value,
-
-            will_gürtel: event.target.gürtelwahl.value,
-
-            //wkupassAbgegeben: event.target.graduation.value == "Weiß-Gelb" && event.target.category.value == "Budo Kids" ? "Erste Prüfung" : event.target.graduation.value == "Gelb" ? "Erste Prüfung" : event.target.wkupassAbgegeben.value,
-	    besitzt_wku_pass: event.target.wkupassAbgegeben.value,
-		
-            standort: event.target.standort.value,
-
-            telefonnummer: event.target.telefonnummer.value,
-            adresse: event.target.adresse.value,
-            platz: event.target.platz.value,
-            ort: event.target.ort.value,
-
-            Tshirt: event.target.category.value == "Budo Kids" ? event.target.shirtwahl.value == "Ja" ? event.target.shirtSize.value : event.target.shirtwahl.value : "",
-
-            email: event.target.email.value,
-		
-            photo: "",
-            mimeType: "",
-
-            einverständniss: event.target.consent.value
-        };
-
-        var url = "";
-
-        if(curretAgegroup == "") {
-            alert("Eingabe Fehler: Alter muss angegeben sein!");
-            return;
-        }
-	
-	url = "https://hooks.zapier.com/hooks/catch/22925597/2727n9o/";
-	
-	
-	const form = event.target; 
-	const formData = new FormData(form);
-	formData.append("category", event.target.category.value);
-	
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-		body: formData
-            });
-
-            if(response.ok) {
-                alert("Formular erfolgreich übermittelt!");
-
-                // Clear the form here
-                document.getElementById("anmeldungsFormular").reset();
-
-                location.reload();
-            } else {
-                const errorData = await response.json();
-                alert("Fehler bei der Übermittlung: " + JSON.stringify(errorData));
-            }
-        } catch (error) {
-            alert("Fehler bei der Übermittlung: " + error.message);
-        }
-    }
-    else 
-    {
+   
         reader.onloadend = async function() {
             // Datei in Base64 konvertieren
             const base64String = reader.result.split(',')[1]; 
@@ -175,26 +103,13 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
     
     		const form = event.target; 
 		const formData = new FormData(form);
-/*
-		formData.set('photo', base64String);
-		formData.set('mimeType', mimeType);
-*/
 	
         try {
             	const response = await fetch(url, {
-                method: 'POST',
-		body: formData
-            });
-		/*
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-    */
+	                method: 'POST',
+			body: formData
+            	});
+		
                 if(response.ok) {
                     alert("Formular erfolgreich übermittelt!");
     
@@ -213,7 +128,6 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
     
         // Lese die Datei als Data-URL (Base64)
         reader.readAsDataURL(fileInput);
-    }
 
     
 });
