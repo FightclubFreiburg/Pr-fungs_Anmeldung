@@ -101,7 +101,7 @@ document.getElementById("anmeldungsFormular").addEventListener("submit", async f
 	
 	const form = event.target; 
 	const formData = new FormData(form);
-
+	formData.append("category", event.target.category.value);
 	
         try {
             const response = await fetch(url, {
