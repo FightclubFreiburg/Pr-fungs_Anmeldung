@@ -316,6 +316,7 @@ function setBeltSteps(altersgruppe){
 		belt_selector.insertBefore(newOption, belt_selector.firstChild);
 	    }
 
+	}
 }
 
 function selectGraduation(selected_graduation){
