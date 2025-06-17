@@ -139,6 +139,7 @@ window.onload = function(){
     */
 }
 function callAlterseingabeWithCurrentValue(){
+	return;
     //sogrt dafür, dass richtige Beltstufen zur auswahl dastehen
     alterEingabe(document.getElementById("birthday").value);
 
