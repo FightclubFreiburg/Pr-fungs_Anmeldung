@@ -192,6 +192,8 @@ function setAltersgruppe(Altersgruppe){
 
     curretAgegroup = Altersgruppe;
 
+	setBeltSteps(Altersgruppe);
+	/*
     if(Altersgruppe == "Budo Kids"){
         setBeltSteps("Budo Kids");
     }
@@ -207,6 +209,7 @@ function setAltersgruppe(Altersgruppe){
     else if(Altersgruppe == "Erwachsen"){
         setBeltSteps("Erwachsen");
     }
+    */
 }
 
 function setBeltSteps(altersgruppe){
