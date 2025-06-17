@@ -195,6 +195,9 @@ function setAltersgruppe(Altersgruppe){
     if(Altersgruppe == "Budo Kids"){
         setBeltSteps("Budo Kids");
     }
+    else if(Altersgruppe == "Budo Kids / Jugendlich"){
+        setBeltSteps("Budo Kids / Jugendlich");
+    }
     else if(Altersgruppe == "Jugendlich"){
         setBeltSteps("Jugendlich");
     }
@@ -245,6 +248,9 @@ function setBeltSteps(altersgruppe){
     }
     else 
     {
+	if(altersgruppe == "Budo Kids / Jugendlich"){
+		console.log("Budo Kids / Jugendlich");
+	}
         //delete all options with the value "Budo Kids"
         for (let i = sportart_selector.length - 1; i >= 0; i--) {
             if (sportart_selector[i].value === "Budo Kids") {
