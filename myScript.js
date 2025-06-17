@@ -225,6 +225,9 @@ function setSportart(altersgruppe){
 	}
 }
 
+function onChangeSportart(input){
+	setBeltSteps(curretAgegroup);
+}
 
 function setBeltSteps(altersgruppe){
     console.log(altersgruppe);
