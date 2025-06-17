@@ -158,10 +158,10 @@ function alterEingabe(input){
     if(alter < 10){
         setAltersgruppe("Budo Kids");
     }
-    if else {
+    else if(alter == 10){
 	setAltersgruppe("Budo Kids / Jugendlich");
     }
-    else if(alter >= 10 && alter < 16){
+    else if(alter > 10 && alter < 16){
         setAltersgruppe("Jugendlich");
     }
     else if(alter >= 16 && alter < 18){
