@@ -270,9 +270,10 @@ function setBeltSteps(altersgruppe){
         else 
         {
             if(sportart_selector.value == "Kickboxen"){
-            
-                if(altersgruppe == "Jugendlich")
+            console.log("K");
+                if(altersgruppe == "Jugendlich" || altersgruppe == "Budo Kids / Jugendlich")
                 {
+			console.log("J");
                     belt_selector.add(new Option("Gelb"));
                     belt_selector.add(new Option("Orange"));
                     belt_selector.add(new Option("Grün 1"));
