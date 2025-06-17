@@ -158,9 +158,6 @@ function alterEingabe(input){
     if(alter < 10){
         setAltersgruppe("Budo Kids");
     }
-    else if(alter == 10){
-        setAltersgruppe("Budo Kids / Jugendlich");
-    }
     else if(alter >= 10 && alter < 16){
         setAltersgruppe("Jugendlich");
     }
@@ -245,82 +242,83 @@ function setBeltSteps(altersgruppe){
     }
     else 
     {
-
-	//delete all options with the value "Budo Kids"
+        //delete all options with the value "Budo Kids"
         for (let i = sportart_selector.length - 1; i >= 0; i--) {
             if (sportart_selector[i].value === "Budo Kids") {
                 sportart_selector[i].remove();
             }
         }
 
-	sportart_selector.disabled = false;
+        sportart_selector.disabled = false;
+        shirt_div.classList.add("none");
 
-	if(altersgruppe == "Budo Kids / Jugendlich")
-	{
-	        sportart_selector.add(new Option("Budo Kids"));
-	        sportart_selector.value = "Budo Kids";
-	}
-	else
-	{
-		shirt_div.classList.add("none");
-	
-		//set T-shirt to Nein
-		shirt_div.children[4].children[0].checked = true;
-	
-	
-		if(altersgruppe == "Erwachsen")
-		{
-		    belt_selector.add(new Option("Gelb"));
-		    belt_selector.add(new Option("Orange"));
-		    belt_selector.add(new Option("Grün"));
-		    belt_selector.add(new Option("Blau"));
-		}
-		else 
-		{
-		    if(sportart_selector.value == "Kickboxen"){
-		    
-			if(altersgruppe == "Jugendlich")
-			{
-			    belt_selector.add(new Option("Gelb"));
-			    belt_selector.add(new Option("Orange"));
-			    belt_selector.add(new Option("Grün 1"));
-			    belt_selector.add(new Option("Grün 2"));
-			    belt_selector.add(new Option("Blau 1"));
-			    belt_selector.add(new Option("Blau 2"));
-			}
-			else if(altersgruppe == "Jugendlich 2")
-			{
-			    belt_selector.add(new Option("Gelb"));
-			    belt_selector.add(new Option("Orange"));
-			    belt_selector.add(new Option("Grün"));
-			    belt_selector.add(new Option("Blau 1"));
-			    belt_selector.add(new Option("Blau 2"));
-			}
-		    }
-		    else if(sportart_selector.value == "Jiu Jitsu")
-		    {
-			belt_selector.add(new Option("Gelb"));
-			belt_selector.add(new Option("Orange"));
-			belt_selector.add(new Option("Grün"));
-			belt_selector.add(new Option("Blau"));
-		    }
-		}
-	
-	
-		//create empty selection slot befor the others
-		const newOption = document.createElement('option');
-		newOption.value = "";
-		newOption.disabled = true;
-		newOption.selected = true;
-		newOption.textContent = "Bitte auswählen";
-		belt_selector.insertBefore(newOption, belt_selector.firstChild);
-	    }
+        //set T-shirt to Nein
+        shirt_div.children[4].children[0].checked = true;
 
-	}
+
+        if(altersgruppe == "Erwachsen")
+        {
+            belt_selector.add(new Option("Gelb"));
+            belt_selector.add(new Option("Orange"));
+            belt_selector.add(new Option("Grün"));
+            belt_selector.add(new Option("Blau"));
+        }
+        else 
+        {
+            if(sportart_selector.value == "Kickboxen"){
+            
+                if(altersgruppe == "Jugendlich")
+                {
+                    belt_selector.add(new Option("Gelb"));
+                    belt_selector.add(new Option("Orange"));
+                    belt_selector.add(new Option("Grün 1"));
+                    belt_selector.add(new Option("Grün 2"));
+                    belt_selector.add(new Option("Blau 1"));
+                    belt_selector.add(new Option("Blau 2"));
+                }
+                else if(altersgruppe == "Jugendlich 2")
+                {
+                    belt_selector.add(new Option("Gelb"));
+                    belt_selector.add(new Option("Orange"));
+                    belt_selector.add(new Option("Grün"));
+                    belt_selector.add(new Option("Blau 1"));
+                    belt_selector.add(new Option("Blau 2"));
+                }
+            }
+            else if(sportart_selector.value == "Jiu Jitsu")
+            {
+                belt_selector.add(new Option("Gelb"));
+                belt_selector.add(new Option("Orange"));
+                belt_selector.add(new Option("Grün"));
+                belt_selector.add(new Option("Blau"));
+            }
+        }
+        
+
+        //create empty selection slot befor the others
+        const newOption = document.createElement('option');
+        newOption.value = "";
+        newOption.disabled = true;
+        newOption.selected = true;
+        newOption.textContent = "Bitte auswählen";
+        belt_selector.insertBefore(newOption, belt_selector.firstChild);
+    }
+
 }
 
 function selectGraduation(selected_graduation){
-	
+
+	/*
+    //enable / disable WKU Pass Abgabe feld
+    if(selected_graduation.selectedIndex == 1)
+    {
+        wkupassAbgegeben_div.classList.add("none");
+    }
+    else
+    {
+        wkupassAbgegeben_div.classList.remove("none");
+    }
+    */
     var gebührFeld = document.getElementById("Gebühr");
 
     //Calculate cost
