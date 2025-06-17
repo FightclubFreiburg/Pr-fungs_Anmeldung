@@ -234,17 +234,18 @@ function setBeltSteps(altersgruppe){
     }
     else 
     {
-	if(altersgruppe == "Budo Kids / Jugendlich"){
-		console.log("Budo Kids / Jugendlich");
-		sportart_selector.add(new Option("Budo Kids"));
-        	sportart_selector.value = "Budo Kids";
-	}
-        //delete all options with the value "Budo Kids"
+	//delete all options with the value "Budo Kids"
         for (let i = sportart_selector.length - 1; i >= 0; i--) {
             if (sportart_selector[i].value === "Budo Kids") {
                 sportart_selector[i].remove();
             }
         }
+	    
+	if(altersgruppe == "Budo Kids / Jugendlich"){
+		console.log("Budo Kids / Jugendlich");
+		sportart_selector.add(new Option("Budo Kids"));
+        	sportart_selector.value = "Budo Kids";
+	}
 
         sportart_selector.disabled = false;
         shirt_div.classList.add("none");
