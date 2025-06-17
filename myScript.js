@@ -125,6 +125,7 @@ window.onload = function(){
     callAlterseingabeWithCurrentValue();
 
     //Email Parameter aus der URL übernommen
+	/*
     const urlParams = new URLSearchParams(window.location.search);
     if(urlParams.get('email') == null)
     {
@@ -135,6 +136,7 @@ window.onload = function(){
         email = urlParams.get("email");
         console.log(email);
     }
+    */
 }
 function callAlterseingabeWithCurrentValue(){
     //sogrt dafür, dass richtige Beltstufen zur auswahl dastehen
