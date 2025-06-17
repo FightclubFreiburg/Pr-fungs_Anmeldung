@@ -194,8 +194,8 @@ function setAltersgruppe(Altersgruppe){
 
     curretAgegroup = Altersgruppe;
 
-	setSportart(Altersgruppe);
-    //setBeltSteps(Altersgruppe);
+    setSportart(Altersgruppe);
+    setBeltSteps(Altersgruppe);
 }
 function setSportart(altersgruppe){
 	
@@ -205,6 +205,8 @@ function setSportart(altersgruppe){
         for (let i = sportart_selector.length - 1; i >= 0; i--) {
             sportart_selector[i].remove();
         }
+	
+	sportart_selector.disabled = false;
 	
 	if(altersgruppe === "Budo Kids"){
 		sportart_selector.add(new Option("Budo Kids"));
@@ -220,15 +222,6 @@ function setSportart(altersgruppe){
 		sportart_selector.add(new Option("Kickboxen"));
 		sportart_selector.add(new Option("Jiu Jitsu"));
 	}
-	
-
-	//create empty selection slot befor the others
-        const newOption = document.createElement('option');
-        newOption.value = "";
-        newOption.disabled = true;
-        newOption.selected = true;
-        newOption.textContent = "Bitte auswählen";
-        sportart_selector.insertBefore(newOption, sportart_selector.firstChild);
 }
 
 
@@ -240,7 +233,7 @@ function setBeltSteps(altersgruppe){
 
     belt_selector.options.length = 0;
     
-    if(altersgruppe == "Budo Kids")
+    if(sportart_selector.value == "Budo Kids")
     {
         //create empty selection slot befor the others
         const newOption = document.createElement('option');
@@ -257,38 +250,13 @@ function setBeltSteps(altersgruppe){
 	belt_selector.add(new Option("Orange-Grün"));
         belt_selector.add(new Option("Grün"));
 
-        //delete all options with the value "Budo Kids"
-        for (let i = sportart_selector.length - 1; i >= 0; i--) {
-            if (sportart_selector[i].value === "Budo Kids") {
-                sportart_selector[i].remove();
-            }
-        }
-        sportart_selector.add(new Option("Budo Kids"));
-        sportart_selector.value = "Budo Kids";
-        sportart_selector.disabled = true;
-
         shirt_div.classList.remove("none");
     }
     else 
     {
-	//delete all options with the value "Budo Kids"
-        for (let i = sportart_selector.length - 1; i >= 0; i--) {
-            if (sportart_selector[i].value === "Budo Kids") {
-                sportart_selector[i].remove();
-            }
-        }
-	    
-	if(altersgruppe == "Budo Kids / Jugendlich"){
-		console.log("Budo Kids / Jugendlich");
-		sportart_selector.add(new Option("Budo Kids"));
-        	sportart_selector.value = "Budo Kids";
-	}
-
-        sportart_selector.disabled = false;
-        shirt_div.classList.add("none");
-
         //set T-shirt to Nein
         shirt_div.children[4].children[0].checked = true;
+        shirt_div.classList.add("none");
 
 
         if(altersgruppe == "Erwachsen")
