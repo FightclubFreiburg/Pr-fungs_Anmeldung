@@ -192,8 +192,43 @@ function setAltersgruppe(Altersgruppe){
 
     curretAgegroup = Altersgruppe;
 
-    setBeltSteps(Altersgruppe);
+	setSportart(Altersgruppe);
+    //setBeltSteps(Altersgruppe);
 }
+function setSportart(altersgruppe){
+	
+	var sportart_selector = document.getElementById("sportart_selector");
+
+	 //delete all options
+        for (let i = sportart_selector.length - 1; i >= 0; i--) {
+            sportart_selector[i].remove();
+        }
+	
+	if(altersgruppe === "Budo Kids"){
+		sportart_selector.add(new Option("Budo Kids"));
+	        sportart_selector.value = "Budo Kids";
+	        sportart_selector.disabled = true;
+	}
+	else if(altersgruppe === "Budo Kids / Jugendlich"){
+		sportart_selector.add(new Option("Budo Kids"));
+		sportart_selector.add(new Option("Kickboxen"));
+		sportart_selector.add(new Option("Jiu Jitsu"));
+	}
+	else{
+		sportart_selector.add(new Option("Kickboxen"));
+		sportart_selector.add(new Option("Jiu Jitsu"));
+	}
+	
+
+	//create empty selection slot befor the others
+        const newOption = document.createElement('option');
+        newOption.value = "";
+        newOption.disabled = true;
+        newOption.selected = true;
+        newOption.textContent = "Bitte auswählen";
+        sportart_selector.insertBefore(newOption, sportart_selector.firstChild);
+}
+
 
 function setBeltSteps(altersgruppe){
     console.log(altersgruppe);
